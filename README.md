@@ -1,6 +1,6 @@
 [JavaScript preprocessor](http://js-preprocessor.com)
 ===============
-Minimal preprocessing with `/*>*/`
+Minimal preprocessing with `/*@include*/`
 
 
 Usage

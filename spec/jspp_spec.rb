@@ -4,19 +4,19 @@ describe JSPP do
 
   describe '::INCLUDE' do
     it 'matches files' do
-      JSPP::INCLUDE.match('/*> path_to/my_file.js */')[1].should == 'path_to/my_file.js'
+      JSPP::INCLUDE.match('/@include> path_to/my_file.js */')[1].should == 'path_to/my_file.js'
     end
     it 'matches URIs' do
-      JSPP::INCLUDE.match('/*> http://elv1s.ru/x/pets.txt */')[1].should == 'http://elv1s.ru/x/pets.txt'
+      JSPP::INCLUDE.match('/@include> http://elv1s.ru/x/pets.txt */')[1].should == 'http://elv1s.ru/x/pets.txt'
     end
   end
 
   describe '::INCLUDE_INSIDE_STRING' do
     it 'matches local files inside strings' do
-      JSPP::INCLUDE_INSIDE_STRING.match('"/*> path_to/my_file.js */"')[1].should == 'path_to/my_file.js'
+      JSPP::INCLUDE_INSIDE_STRING.match('"/*@include path_to/my_file.js */"')[1].should == 'path_to/my_file.js'
     end
     it 'matches URIs inside strings' do
-      JSPP::INCLUDE_INSIDE_STRING.match('"/*> http://elv1s.ru/x/pets.txt */"')[1].should == 'http://elv1s.ru/x/pets.txt'
+      JSPP::INCLUDE_INSIDE_STRING.match('"/*@include http://elv1s.ru/x/pets.txt */"')[1].should == 'http://elv1s.ru/x/pets.txt'
     end
   end
 
@@ -32,7 +32,7 @@ var style = "html, body {margin:0; padding:0}\\
 ";
       result
     end
-    it 'returns same text if no /*> file */ was found' do
+    it 'returns same text if no /*@include file */ was found' do
       JSPP.new.parse(PETS).should == PETS
     end
   end

@@ -1,6 +1,6 @@
 class JSPP
 
-  INCLUDE = %r{/\*>\s*(.+?)\s*\*/}
+  INCLUDE = %r{/\*@include\s*(.+?)\s*\*/}
   INCLUDE_INSIDE_STRING = %r{"#{INCLUDE.source}"}
 
   def parse text='', base_dir='.'
