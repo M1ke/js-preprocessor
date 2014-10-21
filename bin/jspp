@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+# Usage: jspp input > output
+#
+# EXAMPLE
+#              main.js:  /*> script.js */
+#
+#                        var style = "/*> style.css */";
+#
+#            style.css:  html, body {margin:0; padding:0}
+#                        /*> http://js-preprocessor.com/example/css/child.css */
+#                        .my-style {background: #fffacc}
+#
+#      style-child.css:  .i-am-child {}
+#
+#            script.js:  var my_script;
+#
+# jspp example/main.js:  var my_script;
+#
+#                        var style = "html, body {margin:0; padding:0}\
+#                        .i-am-child {}\
+#                        .my-style {background: #fffacc}"
+
+require 'jspp'
+
+if $stdin.tty? and ARGV.empty? or ARGV.delete'-h' or ARGV.delete'--help'
+  $stderr.puts File.read(__FILE__).grep(/^#[^!]/) {|line|
+    line.sub /^# ?/, ''
+  }.join
+  exit 1
+else
+  print JSPP ARGV.first
+end
