@@ -3,12 +3,12 @@
 # Usage: jspp input > output
 #
 # EXAMPLE
-#              main.js:  /*> script.js */
+#              main.js:  /*@include script.js */
 #
-#                        var style = "/*> style.css */";
+#                        var style = "/*@include style.css */";
 #
 #            style.css:  html, body {margin:0; padding:0}
-#                        /*> http://js-preprocessor.com/example/css/child.css */
+#                        /*@include http://js-preprocessor.com/example/css/child.css */
 #                        .my-style {background: #fffacc}
 #
 #      style-child.css:  .i-am-child {}

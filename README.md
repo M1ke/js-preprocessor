@@ -2,6 +2,7 @@
 ===============
 Minimal preprocessing with `/*@include*/`
 
+Previously used `/*>`. Converted to handle the more verbose `@include` to be compatible with the [preprocess](https://github.com/jsoverson/preprocess) npm library.
 
 Usage
 ----
@@ -11,12 +12,12 @@ Example
 ----
 <table><tr>
 <td>main.js
-<pre>/*> script.js */
+<pre>/*@include script.js */
 
-var style = "/*> css/style.css */";</pre></td>
+var style = "/*@include css/style.css */";</pre></td>
 <td>css/style.css
 <pre>html, body {margin:0; padding:0}
-/*> http://js-preprocessor.com/example/css/child.css */
+/*@include http://js-preprocessor.com/example/css/child.css */
 .my-style {background: #fffacc}
 </pre></td>
 <td><br/>css/child.css
