@@ -46,6 +46,11 @@ Installation
 
     $ gem install jspp
 
+Testing
+----
+
+The included spec files can be run with `ruby spec/jspp_spec.rb`. As of 2014-10-21 the tests all fail due to language errors but the system appears to work when run on the example file.
+
 Why reinvent the wheel?
 ----
 [Sprockets](http://github.com/sstephenson/sprockets) can't include non-JS files.
