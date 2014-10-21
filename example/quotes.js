@@ -1,1 +1,1 @@
-var test = "/*> css/quotes.css */";
+var test = "/*@include css/quotes.css */";

@@ -1,3 +1,3 @@
 /*@include script.js */
 
-var style = "/*> css/style.css */";
+var style = "/*@include css/style.css */";
